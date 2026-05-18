@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Sara 💕</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Lato:wght@300;400&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1a0010, #3d0030, #1a0010);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      font-family: 'Lato', sans-serif;
+    }
+
+    .particula {
+      position: fixed;
+      pointer-events: none;
+      animation: flutuar linear infinite;
+      opacity: 0;
+      z-index: 0;
+    }
+
+    @keyframes flutuar {
+      0%   { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+      10%  { opacity: 1; }
+      90%  { opacity: 1; }
+      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* Tela de abertura */
+    #tela-inicio {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #1a0010, #3d0030);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      gap: 24px;
+      transition: opacity 1s ease;
+    }
+
+    #tela-inicio h2 {
+      font-family: 'Dancing Script', cursive;
+      color: #ffb3c6;
+      font-size: 1.8rem;
+      text-align: center;
+      padding: 0 30px;
+      line-height: 1.5;
+    }
+
+    #tela-inicio span {
+      color: rgba(255,255,255,0.35);
+      font-size: 0.82rem;
+      letter-spacing: 2px;
+    }
+
+    #btn-abrir {
+      background: linear-gradient(135deg, #ff6b9d, #ff8fab);
+      border: none;
+      border-radius: 50px;
+      padding: 14px 38px;
+      color: white;
+      font-size: 1.1rem;
+      cursor: pointer;
+      font-family: 'Lato', sans-serif;
+      box-shadow: 0 4px 25px rgba(255, 107, 157, 0.5);
+      animation: pulsarBtn 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulsarBtn {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.06); }
+    }
+
+    .card {
+      position: relative;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 180, 200, 0.3);
+      border-radius: 30px;
+      padding: 50px 40px;
+      max-width: 480px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 0 60px rgba(255, 50, 100, 0.3);
+      max-height: 95vh;
+      overflow-y: auto;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .card.visivel { opacity: 1; }
+
+    .emoji-topo {
+      font-size: 3rem;
+      animation: pulsar 1.5s ease-in-out infinite;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    @keyframes pulsar {
+      0%, 100% { transform: scale(1); }
+      50%       { transform: scale(1.2); }
+    }
+
+    .anos {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.1rem;
+      color: #ffb3c6;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.8rem;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px rgba(255, 100, 150, 0.8);
+    }
+
+    .divisor {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0;
+      color: #ff6b9d;
+      font-size: 1.2rem;
+    }
+
+    .divisor::before,
+    .divisor::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #ff6b9d, transparent);
+    }
+
+    .mensagem {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.9;
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+
+    .mensagem span {
+      color: #ffb3c6;
+      font-weight: 400;
+    }
+
+    .flores {
+      font-size: 2rem;
+      letter-spacing: 5px;
+      margin: 15px 0;
+      animation: balancear 3s ease-in-out infinite;
+    }
+
+    @keyframes balancear {
+      0%, 100% { transform: rotate(-3deg); }
+      50%       { transform: rotate(3deg); }
+    }
+
+    .assinatura {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.6rem;
+      color: #ff6b9d;
+      margin-top: 20px;
+      text-shadow: 0 0 10px rgba(255, 107, 157, 0.6);
+    }
+
+    .tinder-note {
+      margin-top: 15px;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.4);
+      font-style: italic;
+    }
+
+    .contador {
+      margin-top: 25px;
+      padding: 15px;
+      background: rgba(255, 100, 150, 0.15);
+      border-radius: 15px;
+      border: 1px solid rgba(255, 100, 150, 0.2);
+    }
+
+    .contador p {
+      color: #ffb3c6;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .contador #tempo {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 300;
+    }
+
+    .musica-box {
+      margin-top: 25px;
+      padding: 15px;
+      background: rgba(255, 100, 150, 0.1);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 100, 150, 0.25);
+    }
+
+    .musica-box p {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.78rem;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .musica-box strong {
+      display: block;
+      color: #ffb3c6;
+      font-size: 0.88rem;
+      font-weight: 400;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    #btn-musica {
+      background: linear-gradient(135deg, #ff6b9d, #ff8fab);
+      border: none;
+      border-radius: 50px;
+      padding: 10px 24px;
+      color: white;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(255, 107, 157, 0.4);
+      font-family: 'Lato', sans-serif;
+    }
+
+    #btn-musica:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 25px rgba(255, 107, 157, 0.6);
+    }
+
+    .nota-musicando {
+      margin-top: 8px;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
+      animation: pisca-nota 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pisca-nota {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.8; }
+    }
+  </style>
+</head>
+<body>
+
+<audio id="audio" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Tela de abertura -->
+<div id="tela-inicio">
+  <h2>💕 Você recebeu uma mensagem especial...</h2>
+  <button id="btn-abrir" onclick="abrirPagina()">Abrir 🌸</button>
+  <span>toque para abrir</span>
+</div>
+
+<div class="card" id="card-principal">
+  <span class="emoji-topo">💕</span>
+  <div class="anos">✨ 2 anos juntos ✨</div>
+  <h1>Para Sara Oliveira</h1>
+
+  <div class="divisor">🌹</div>
+
+  <div class="flores">🌸🌺🌹🌷🌸</div>
+
+  <p class="mensagem">
+    Há 2 anos, você disse o SIM mais lindo de todos os tempos, em um de nossos lugares preferidos: O cinema.
+    E desde então, tudo começou a ter um significado.
+  </p>
+
+  <p class="mensagem">
+    Você foi corajosa o suficiente para dar o primeiro passo (o like),
+    e eu fui sortudo o suficiente para te encontrar
+    e apenas retribuir o like.
+  </p>
+
+  <p class="mensagem">
+    <span>Amo muito você, Princesa Sara! Hoje, amanhã e sempre!</span> 🌸❤️
+  </p>
+
+  <div class="divisor">💫</div>
+
+  <div class="flores">🌷🌺🌸🌹🌷</div>
+
+  <div class="assinatura">Com todo o meu amor ❤️</div>
+
+  <p class="tinder-note">Tudo começou com um like no dia 16/04/2024... 🍀</p>
+
+  <div class="contador">
+    <p>Juntos há</p>
+    <div id="tempo">carregando...</div>
+  </div>
+
+  <div class="musica-box">
+    <p>🎵 Tocando para você</p>
+    <strong>"Você Me Faz Tão Bem" — Detonautas</strong>
+    <button id="btn-musica" onclick="toggleMusica()">⏸ Pausar música</button>
+    <div class="nota-musicando" id="nota-status">♪ ♫ tocando... ♫ ♪</div>
+  </div>
+</div>
+
+<script>
+  // Partículas
+  const simbolos = ['❤️','💕','🌹','💖','✨','🌸','💗','🌺','💝','🌷'];
+  for (let i = 0; i < 30; i++) {
+    const p = document.createElement('div');
+    p.classList.add('particula');
+    p.textContent = simbolos[Math.floor(Math.random() * simbolos.length)];
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.animationDuration = (Math.random() * 8 + 6) + 's';
+    p.style.animationDelay = (Math.random() * 10) + 's';
+    p.style.fontSize = (Math.random() * 1.5 + 0.8) + 'rem';
+    document.body.appendChild(p);
+  }
+
+  // Contador
+  const inicio = new Date('2024-05-18T00:00:00');
+  function atualizarContador() {
+    const agora = new Date();
+    const diff = agora - inicio;
+    const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((diff % (1000 * 60)) / 1000);
+    document.getElementById('tempo').textContent =
+      `${dias} dias, ${horas}h ${minutos}m ${segundos}s`;
+  }
+  atualizarContador();
+  setInterval(atualizarContador, 1000);
+
+  // Abre a página e inicia a música
+  const audio = document.getElementById('audio');
+
+  function abrirPagina() {
+    const tela = document.getElementById('tela-inicio');
+    const card = document.getElementById('card-principal');
+
+    tela.style.opacity = '0';
+    setTimeout(() => tela.style.display = 'none', 1000);
+    card.classList.add('visivel');
+
+    audio.play();
+  }
+
+  function toggleMusica() {
+    const btn = document.getElementById('btn-musica');
+    const status = document.getElementById('nota-status');
+    if (!audio.paused) {
+      audio.pause();
+      btn.textContent = '▶ Tocar música';
+      status.textContent = '♪ pausado';
+    } else {
+      audio.play();
+      btn.textContent = '⏸ Pausar música';
+      status.textContent = '♪ ♫ tocando... ♫ ♪';
+    }
+  }
+</script>
+
+</body>
+</html>
